@@ -1,10 +1,7 @@
 #!/bin/bash
-(
-    cd build/release
-    make -j 7
-)
 
-result=$?
-if [ ${result} == 0 ]; then
-    ./bin/test
+if [ ! -d "allolib" ]; then
+  echo "Submodules have not been initialized. Project requires allolib to compile.
+Follow instructions on README.md to set up allolib."
+else allolib/run.sh "$@"
 fi
